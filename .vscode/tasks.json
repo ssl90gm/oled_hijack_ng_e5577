@@ -1,0 +1,104 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "adb connect",
+            "type": "shell",
+            "command": "adb connect 192.168.8.1:5555; adb shell \"mount -o remount,rw /app/webroot\"; adb shell \"mount -o remount,rw /system\"; adb shell \"mount -o remount,rw /app\";",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": []
+        },      
+        {
+            "label": "build device_webhook.so",
+            "type": "shell",
+            "command": "bash build.sh clean; bash build.sh device_webhook.so; adb push device_webhook.so /app/bin/oled_hijack/mod/device_webhook.so; adb shell chmod 775 /app/bin/oled_hijack/mod/device_webhook.so",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "build device_webhook_client",
+            "type": "shell",
+            "command": "bash build.sh clean; bash build.sh device_webhook_client; adb push device_webhook_client /app/bin/oled_hijack/mod/device_webhook_client; adb shell chmod 775 /app/bin/oled_hijack/mod/device_webhook_client",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "build sms_webhook.so",
+            "type": "shell",
+            "command": "bash build.sh clean; bash build.sh sms_webhook.so; adb push sms_webhook.so /app/bin/oled_hijack/mod/sms_webhook.so; adb shell chmod 775 /app/bin/oled_hijack/mod/sms_webhook.so",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "build sms_webhook_client",
+            "type": "shell",
+            "command": "bash build.sh clean; bash build.sh sms_webhook_client; adb push sms_webhook_client /app/bin/oled_hijack/mod/sms_webhook_client; adb shell chmod 775 /app/bin/oled_hijack/mod/sms_webhook_client",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "build oled_hijack.so",
+            "type": "shell",
+            "command": "bash build.sh clean; bash build.sh oled_hijack.so; adb push oled_hijack.so /app/bin/oled_hijack/mod/oled_hijack.so; adb shell chmod 775 /app/bin/oled_hijack/mod/oled_hijack.so",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "bash build.sh clean; bash build.sh oled_hijack.so; adb push oled_hijack.so /tmp/oled_hijack.so; adb shell chmod 775 /tmp/oled_hijack.so",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": []
+        }
+    ]
+}
+

@@ -1,0 +1,16 @@
+{
+    "triggerTaskOnSave.tasks": {
+        "build": [
+            "*.sh",
+            "*.cgi",
+            "system/xbin/openvpn.up",
+            "system/xbin/openvpn.down",
+            "app/webroot/WebApp/common/css/openvpn.css",
+        ],
+    },
+    "triggerTaskOnSave.tasks": {
+        "build oled_hijack.so": [
+            "**/*.c"
+        ]
+    },
+}
